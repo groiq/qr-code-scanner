@@ -1,0 +1,14 @@
+
+version: "3"
+services:
+
+        app:
+                build:
+                        context: .
+                        dockerfile: Dockerfile
+                entrypoint: ["./test.py"]
+                ports:
+                        - "8000:8000"
+
+
+# Django-Docker setup from https://roytuts.com/docker-compose-dockerizing-django-mysql-app/

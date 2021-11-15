@@ -1,0 +1,4 @@
+Django==3.0.8
+django-mysql==3.8.1
+
+python-base45==0.4.3
