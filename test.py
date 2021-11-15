@@ -34,6 +34,11 @@ print(decompressed)
 
 pprint(decompressed)
 
+## dump to json
+# import json
+# asJson = json.dumps(decompressed)
+# print(asJson)
+
 # input = "Hello world"
 
 # toBytes = input.encode('ascii')
