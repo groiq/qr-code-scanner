@@ -16,7 +16,6 @@ def main():
     pprint(extractedData)
 
 def decodeQR(input):
-    # todo: verify prefix
     left, right = input[:4], input[4:]
     if left != b'HC1:':
         raise ValueError(f'malformed prefix: should be "HC1:", but is "{left}"')
