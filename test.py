@@ -7,7 +7,7 @@ import cbor2
 import json
 
 def main():
-    with open('./vaccinationCodes.json', 'r', encoding='UTF-8') as infile:
+    with open('resources/vaccinationCodes.json', 'r', encoding='UTF-8') as infile:
         vaccinationCodes = json.load(infile)
     # pprint(vaccinationCodes)
 
