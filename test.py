@@ -19,6 +19,7 @@ def decodeQR(input):
     # todo: verify prefix
     # left, right = input[:4], input[4:]
     # print(left)
+
     processed = input.lstrip(b'HC1:')
     processed = b45decode(processed)
     processed = zlib.decompress(processed)
@@ -31,11 +32,13 @@ def extractRelevantJsonFields(rawData):
     # pprint(vaccinationCodes)
 
     extractedData = {}
+    
     vaccine = rawData[-260][1]['v'][0]
     manufacturerCode = vaccine['ma']
     extractedData['manufacturer'] = vaccinationCodes['manufacturer'][manufacturerCode]
     extractedData['vaccinationDate'] = vaccine['dt']
     extractedData['publisher'] = vaccine['is']
+
     patientName = rawData[-260][1]['nam']
     extractedData['firstName'] = patientName['gn']
     extractedData['lastName'] = patientName['fn']
