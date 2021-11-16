@@ -17,11 +17,12 @@ def main():
 
 def decodeQR(input):
     # todo: verify prefix
-    # left, right = input[:4], input[4:]
-    # print(left)
+    left, right = input[:4], input[4:]
+    print(left)
+    print(right)
 
-    processed = input.lstrip(b'HC1:')
-    processed = b45decode(processed)
+    # processed = input.lstrip(b'HC1:')
+    processed = b45decode(right)
     processed = zlib.decompress(processed)
     processed = CoseMessage.decode(processed)
     return cbor2.loads(processed.payload)
@@ -32,7 +33,7 @@ def extractRelevantJsonFields(rawData):
     # pprint(vaccinationCodes)
 
     extractedData = {}
-    
+
     vaccine = rawData[-260][1]['v'][0]
     manufacturerCode = vaccine['ma']
     extractedData['manufacturer'] = vaccinationCodes['manufacturer'][manufacturerCode]
