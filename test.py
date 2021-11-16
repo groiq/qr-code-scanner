@@ -35,7 +35,7 @@ def extractRelevantJsonFields(rawData):
 
     vaccine = rawData[-260][1]['v'][0]
     manufacturerCode = vaccine['ma']
-    extractedData['manufacturer'] = vaccinationCodes['manufacturer'][manufacturerCode]
+    extractedData['manufacturer'] = vaccinationCodes['manufacturer'].get(manufacturerCode, 'unknown')
     extractedData['vaccinationDate'] = vaccine['dt']
     extractedData['publisher'] = vaccine['is']
 
