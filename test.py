@@ -18,10 +18,9 @@ def main():
 def decodeQR(input):
     # todo: verify prefix
     left, right = input[:4], input[4:]
-    print(left)
-    print(right)
+    if left != b'HC1:':
+        raise ValueError(f'malformed prefix: should be "HC1:", but is "{left}"')
 
-    # processed = input.lstrip(b'HC1:')
     processed = b45decode(right)
     processed = zlib.decompress(processed)
     processed = CoseMessage.decode(processed)
